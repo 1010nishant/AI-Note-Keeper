@@ -7,7 +7,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FlowBrain",
+  title: "AI Note Keeper",
   description: "The intelligent note-taking app",
 };
 
