@@ -6,7 +6,6 @@ import {
   deleteNoteSchema,
   updateNoteSchema,
 } from "@/lib/validation/note";
-import { auth } from "@clerk/nextjs";
 
 export async function POST(req: Request) {
   try {
@@ -21,7 +20,8 @@ export async function POST(req: Request) {
 
     const { title, content } = parseResult.data;
 
-    const { userId } = auth();
+    // const { userId } = auth();
+    const userId = process.env.USER_ID;
 
     if (!userId) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
@@ -75,7 +75,8 @@ export async function PUT(req: Request) {
       return Response.json({ error: "Note not found" }, { status: 404 });
     }
 
-    const { userId } = auth();
+    // const { userId } = auth();
+    const userId = process.env.USER_ID;
 
     if (!userId || userId !== note.userId) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
@@ -129,7 +130,8 @@ export async function DELETE(req: Request) {
       return Response.json({ error: "Note not found" }, { status: 404 });
     }
 
-    const { userId } = auth();
+    // const { userId } = auth();
+    const userId = process.env.USER_ID;
 
     if (!userId || userId !== note.userId) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });

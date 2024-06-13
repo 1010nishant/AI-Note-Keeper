@@ -5,7 +5,6 @@ import AIChatButton from "@/components/AIChatButton";
 import AddEditNoteDialog from "@/components/AddEditNoteDialog";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { Button } from "@/components/ui/button";
-import { UserButton } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Plus } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -27,13 +26,13 @@ export default function NavBar() {
             <span className="font-bold">AI Note Keeper</span>
           </Link>
           <div className="flex items-center gap-2">
-            <UserButton
+            {/* <UserButton
               afterSignOutUrl="/"
               appearance={{
                 baseTheme: theme === "dark" ? dark : undefined,
                 elements: { avatarBox: { width: "2.5rem", height: "2.5rem" } },
               }}
-            />
+            /> */}
             <ThemeToggleButton />
             <Button onClick={() => setShowAddEditNoteDialog(true)}>
               <Plus size={20} className="mr-2" />

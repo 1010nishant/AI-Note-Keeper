@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { useUser } from "@clerk/nextjs";
+// import { useUser } from "@clerk/nextjs";
 import { Message } from "ai";
 import { useChat } from "ai/react";
 import { Bot, Trash, XCircle } from "lucide-react";
@@ -108,7 +108,10 @@ function ChatMessage({
 }: {
   message: Pick<Message, "role" | "content">;
 }) {
-  const { user } = useUser();
+  // const { user } = useUser();
+  const user = {
+    imageUrl:'https://png.pngtree.com/png-vector/20231124/ourmid/pngtree-demo-blue-glossy-web-icon-demo-icon-png-image_10696484.png'
+  }
 
   const isAiMessage = role === "assistant";
 
